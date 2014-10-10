@@ -1,16 +1,18 @@
 'use strict';
 
 var EPUBJS = EPUBJS || {};
-EPUBJS.VERSION = "0.1.10";
+EPUBJS.VERSION = "0.2.2";
 
 EPUBJS.plugins = EPUBJS.plugins || {};
 
 EPUBJS.filePath = EPUBJS.filePath || "/epubjs/";
 
+EPUBJS.Render = {};
+
 (function(root) {
 
 	var previousEpub = root.ePub || {};
-	
+
 	var ePub = root.ePub = function() {
 		var bookPath, options;
 
@@ -29,7 +31,7 @@ EPUBJS.filePath = EPUBJS.filePath || "/epubjs/";
 
 		}
 
-		/* 
+		/*
 		*   var book = ePub({ bookPath: "path/to/book.epub", restore: true });
 		*
 		*   - OR -
@@ -41,8 +43,8 @@ EPUBJS.filePath = EPUBJS.filePath || "/epubjs/";
 		if( arguments[0] && typeof arguments[0] === 'object' ) {
 			options = arguments[0];
 		}
-		
-		
+
+
 		return new EPUBJS.Book(options);
 	};
 
